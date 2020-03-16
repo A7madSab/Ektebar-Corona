@@ -24,7 +24,6 @@ app.get("/webhook", (req, res) => {
     }
 })
 
-// 
 app.post("/webhook", (req, res) => {
     let body = req.body
 
@@ -34,17 +33,10 @@ app.post("/webhook", (req, res) => {
 
             let sender_psid = webhook_event.sender.id
 
-            if (webhook_event.message) {
-                console.log("you send a text")
-                handle.handleMessage(sender_psid, webhook_event.message.text)
-            } else if (webhook_event.postback) {
-                console.log("clicked on a button")
+            if (webhook_event.postback) {
                 handle.handlePostback(sender_psid, webhook_event.postback)
-            } else if (webhook_event.delivery) {
-                console.log("webhook_event.deliveries")
-            } else if (webhook_event.reaction) {
-                console.log("message_reactions")
-            }
+            } 
+
         })
         res.status(200).send("EVENT_RECEIVED")
     } else {
@@ -53,3 +45,17 @@ app.post("/webhook", (req, res) => {
 })
 
 app.listen(process.env.PORT || 3000, () => console.log("Sever is UP!"))
+
+
+
+// if (webhook_event.message) {
+//     console.log("you send a text")
+//     handle.handleMessage(sender_psid, webhook_event.message.text)
+// } else if (webhook_event.postback) {
+//     console.log("clicked on a button")
+//     handle.handlePostback(sender_psid, webhook_event.postback)
+// } else if (webhook_event.delivery) {
+//     console.log("webhook_event.deliveries")
+// } else if (webhook_event.reaction) {
+//     console.log("message_reactions")
+// }
