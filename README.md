@@ -1,2 +1,0 @@
-# Ektebar-Corona
-# Ektebar-Corona
