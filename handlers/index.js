@@ -30,6 +30,6 @@ const handlePostback = (sender_psid, received_message) => {
 }
 
 module.exports = {
-    handleMessage,
+    // handleMessage,
     handlePostback
 }
