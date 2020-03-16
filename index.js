@@ -33,9 +33,13 @@ app.post("/webhook", (req, res) => {
 
             let sender_psid = webhook_event.sender.id
 
-            if (webhook_event.postback) {
+            if (webhook_event.message) {
+                console.log("message", webhook_event.message.text)
+                handle.handleMessage(sender_psid, webhook_event.message.text)
+            } else if (webhook_event.postback) {
+                console.log("webhook_event.postback", webhook_event.postback)
                 handle.handlePostback(sender_psid, webhook_event.postback)
-            } 
+            }
 
         })
         res.status(200).send("EVENT_RECEIVED")
@@ -48,10 +52,7 @@ app.listen(process.env.PORT || 3000, () => console.log("Sever is UP!"))
 
 
 
-// if (webhook_event.message) {
-//     console.log("you send a text")
-//     handle.handleMessage(sender_psid, webhook_event.message.text)
-// } else if (webhook_event.postback) {
+// else if (webhook_event.postback) {
 //     console.log("clicked on a button")
 //     handle.handlePostback(sender_psid, webhook_event.postback)
 // } else if (webhook_event.delivery) {
