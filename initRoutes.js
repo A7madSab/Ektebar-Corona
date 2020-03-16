@@ -27,11 +27,9 @@ const persistentMenu = {
     ]
 }
 
-module.exports = (app) => {
-    app.get("/init", (req, res) => {
-        fetch(`https://graph.facebook.com/v6.0/me/messenger_profile?access_token=${process.env.ACCESS_TOKEN}`,{
-            method: "POST",
-            body: JSON.stringify(persistentMenu)
-        })
+module.exports = () => {
+    fetch(`https://graph.facebook.com/v6.0/me/messenger_profile?access_token=${process.env.ACCESS_TOKEN}`, {
+        method: "POST",
+        body: JSON.stringify(persistentMenu)
     })
 }
