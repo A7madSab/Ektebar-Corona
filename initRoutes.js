@@ -31,6 +31,10 @@ module.exports = async () => {
     console.log("send persistent Menu Api")
     const res = await fetch(`https://graph.facebook.com/v6.0/me/messenger_profile?access_token=${process.env.ACCESS_TOKEN}`, {
         method: "POST",
+        mode: "cors",
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify(persistentMenu)
     })
     console.log("res", res)
