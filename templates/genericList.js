@@ -5,7 +5,7 @@ module.exports = (message) => ({
             "template_type": "generic",
             "elements": [
                 {
-                    "title": "One!",
+                    "title": "Yes",
                     "image_url": "https://petersfancybrownhats.com/company_image.png",
                     "subtitle": message,
                     "default_action": {
