@@ -1,4 +1,3 @@
-
 module.exports = () => ({
     "attachment": {
         "type": "template",
