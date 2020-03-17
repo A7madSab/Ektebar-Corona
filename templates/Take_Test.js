@@ -8,7 +8,7 @@ module.exports = () => ({
                 {
                     "type": "postback",
                     "title": "نعم",
-                    "payload": "must_diagnose"
+                    "payload": "Emergence"
                 },
                 {
                     "type": "postback",

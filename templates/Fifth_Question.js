@@ -8,12 +8,12 @@ module.exports = () => ({
                 {
                     "type": "postback",
                     "title": "نعم",
-                    "payload": "Sixth_Question"
+                    "payload": "6th_Question"
                 },
                 {
                     "type": "postback",
                     "title": "لا",
-                    "payload": "Fifth_Question"
+                    "payload": "don't_Need"
                 },
             ]
         }
