@@ -1,10 +1,10 @@
 
-module.exports = (message) => ({
+module.exports = () => ({
     "attachment": {
         "type": "template",
         "payload": {
             "template_type": "button",
-            "text": "هل تعاني من صعوبة شديدة في التنفس صعوبة أثناء التنفس او أثناء الكلام او ألم شديد في الصدر او تواجه صعوبة في الاستيقاظاو تشعر بالاضطراب و التشويش او فقدان في الوعي؟",
+            "text": "هل تعاني من ضيق في التنفس او عدم القدرة على الاستلقاء بسبب صعوبة التنفس او حالة صحية مزمنة لا يمكنك السيطرة عليها بسبب مرضك التنفسي الحالي؟",
             "buttons": [
                 {
                     "type": "postback",
@@ -14,7 +14,7 @@ module.exports = (message) => ({
                 {
                     "type": "postback",
                     "title": "لا",
-                    "payload": "2nd_question"
+                    "payload": "3nd_question"
                 },
             ]
         }
