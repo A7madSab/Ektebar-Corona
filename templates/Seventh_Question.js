@@ -3,12 +3,12 @@ module.exports = () => ({
         "type": "template",
         "payload": {
             "template_type": "button",
-            "text": "هل تعاني من او حمى او  سعال او  ضيق في التنفس او احتقان أو التهاب في الحلق؟",
+            "text": "هل سافرت خارج مصر خلال الأربعة عشر يوما السابقة لظهور الأعراض عليك؟",
             "buttons": [
                 {
                     "type": "postback",
                     "title": "نعم",
-                    "payload": "4th_Question"
+                    "payload": "Direct_Contact_Question"
                 },
                 {
                     "type": "postback",

@@ -13,7 +13,7 @@ module.exports = () => ({
                 {
                     "type": "postback",
                     "title": "لا",
-                    "payload": ""
+                    "payload": "7th_Question"
                 },
             ]
         }

@@ -16,7 +16,4 @@ module.exports = (sender_psid, response) => {
     } catch (err) {
         console.log("err", err)
     }
-    console.log("response:", response)
-    console.log("sender_psid:", sender_psid)
-    console.log("url:", url)
 }

@@ -38,7 +38,11 @@ const handlePostback = (sender_psid, received_message) => {
         response = responseBuilder(sender_psid, Secound_Question())
     } else if (received_message.payload === "3nd_question") {
         response = responseBuilder(sender_psid, Third_Question())
-    } else if (received_message.payload === "Fourth_Question") {
+    } else if (received_message.payload === "4th_Question") {
+        response = responseBuilder(sender_psid, Fourth_Question())
+    } else if (received_message.payload === "5th_Question") {
+        response = responseBuilder(sender_psid, Fourth_Question())
+    } else if (received_message.payload === "7th_Question") {
         response = responseBuilder(sender_psid, Fourth_Question())
     } else if (received_message.payload === "Direct_Contact_Question") {
         response = responseBuilder(sender_psid, text("اتصل بـ 105 للتحدث مع طاقم التمريض بناء على الإجابات التي قدمتها رجاء اتصل على 105 ليقوم أحد أفراد فريق التمريض بتقييم الأعراض. رجاء عدم الذهاب الى قسم الطوارئ، أو زيارة العيادات ما لم تسوء تلك الأعراض بسبب ظهور الأعراض عليك، رجاء القيام بحجر ذاتي حتى تصبح نتيجة تحاليلك متاحة، العزل الذاتي يعني عدم الذهاب للأماكن العامة، البقاء في المنزل وعدم مقابلة الزائرين. لا تتشارك الأدوات الشخصية مثل الأطباق و الأواني و المناشف و قم بغسل يديك من حين لآخر"))
