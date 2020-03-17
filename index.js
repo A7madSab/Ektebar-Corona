@@ -1,11 +1,11 @@
 const express = require("express")
 const bodyParser = require("body-parser")
-const fetch = require("node-fetch")
+// const fetch = require("node-fetch")
 const handle = require("./handlers")
 
 const app = express()
 
-require("./initRoutes")()
+// require("./initRoutes")()
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
@@ -38,7 +38,7 @@ app.post("/webhook", (req, res) => {
                 console.log("message", webhook_event.message.text)
                 handle.handleMessage(sender_psid, webhook_event.message.text)
             } else if (webhook_event.postback) {
-                console.log("webhook_event.postback", webhook_event.postback)
+                console.log("webhook_event.postback", webhook_event.postback.payload)
                 handle.handlePostback(sender_psid, webhook_event.postback)
             }
 
