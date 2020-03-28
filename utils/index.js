@@ -10,12 +10,10 @@ const getLastCoronaNumbers = async () => {
         }
     })
     const data = await res.json()
-
     const { covid19Stats } = data.data
     let total = 0
     covid19Stats.forEach(location => total += location.confirmed)
-    console.log('total:', total)
-    return `جميع الحالات: ${total}`
+    return "جميع الحالات:" + total
 }
 
 module.exports = {
