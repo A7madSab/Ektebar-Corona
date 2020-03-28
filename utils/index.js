@@ -1,7 +1,6 @@
 const fetch = require('node-fetch');
 
 const getLastCoronaNumbers = async () => {
-    console.log("getLastCoronaNumbers started")
     const res = await fetch("https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats", {
         headers: {
             "Content-Type": "application/json",

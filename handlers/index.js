@@ -38,8 +38,7 @@ const handlePostback = async (sender_psid, received_message) => {
     let response
     switch (received_message.payload) {
         case "Get_Last_Corona_Numbers":
-            console.log("await utils.getLastCoronaNumbers()", await utils.getLastCoronaNumbers())
-            response = text(await utils.getLastCoronaNumbers())
+            response = responseBuilder(sender_psid, await utils.getLastCoronaNumbers())
             break
         case "Take_Test":
             response = responseBuilder(sender_psid, Take_Test_Button())
