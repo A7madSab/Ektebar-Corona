@@ -40,6 +40,7 @@ const handlePostback = async (sender_psid, received_message) => {
         case "Get_Last_Corona_Numbers":
             const coronaNumbers = await utils.getLastCoronaNumbers()
             response = text(coronaNumbers)
+            break
         case "Take_Test":
             response = responseBuilder(sender_psid, Take_Test_Button())
             break
