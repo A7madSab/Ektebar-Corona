@@ -1,5 +1,9 @@
 const fetch = require('node-fetch');
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 const getLastCoronaNumbers = async () => {
     const res = await fetch("https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats", {
         headers: {
@@ -12,7 +16,7 @@ const getLastCoronaNumbers = async () => {
     const { covid19Stats } = data.data
     let total = 0
     covid19Stats.forEach(location => total += location.confirmed)
-    return "جميع الحالات:" + total
+    return "جميع الحالات: " + numberWithCommas(total)
 }
 
 module.exports = {
