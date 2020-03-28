@@ -7,8 +7,8 @@ const Fourth_Question = require("../templates/Fourth_Question")
 const Fifth_Question = require("../templates/Fifth_Question")
 const Sixth_Question = require("../templates/Sixth_Question")
 const Seventh_Question = require("../templates/Seventh_Question")
-const utils = require("../utils/index")
 const genericList = require("../templates/genericList")
+const utils = require("../utils/index")
 
 // // Triggered when user sends a message
 // const handleMessage = (sender_psid, received_message) => {

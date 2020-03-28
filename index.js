@@ -37,7 +37,7 @@ app.post("/webhook", (req, res) => {
             // if (webhook_event.message) {
             //     handle.handleMessage(sender_psid, webhook_event.message.text)
             // } else
-             if (webhook_event.postback) {
+            if (webhook_event.postback) {
                 handle.handlePostback(sender_psid, webhook_event.postback)
             }
 
@@ -48,7 +48,10 @@ app.post("/webhook", (req, res) => {
     }
 })
 
-app.listen(process.env.PORT || 3000, () => console.log("Sever is UP!"))
+app.listen(process.env.PORT || 3000, () => {
+    console.log("Sever is UP!")
+})
+
 
 
 

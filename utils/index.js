@@ -1,12 +1,24 @@
+const fetch = require('node-fetch');
+
 const getLastCoronaNumbers = async () => {
-    const data = await fetch("https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats")
-    const res = await JSON.parse(data)
+    try {
+        const res = await fetch("https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats", {
+            headers: {
+                "Content-Type": "application/json",
+                "x-rapidapi-host": "covid-19-coronavirus-statistics.p.rapidapi.com",
+                "x-rapidapi-key": "311616bd3emshc6c9be769717d48p1135c0jsnd657a88b42b8"
+            }
+        })
+        const data = await res.json()
 
-    const finalRes = res.data.data.covid19Stats
-    let total = 0
-    finalRes.forEach(location => total += location.confirmed)
-
-    return `جميع الحالات: ${total}`
+        const { covid19Stats } = data.data
+        let total = 0
+        covid19Stats.forEach(location => total += location.confirmed)
+        return `جميع الحالات: ${total}`
+    } catch (err) {
+        console.log(err)
+        return "جميع هناك خطأ ما !!"
+    }
 }
 
 module.exports = {
