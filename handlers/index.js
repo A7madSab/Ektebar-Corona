@@ -7,6 +7,7 @@ const Fourth_Question = require("../templates/Fourth_Question")
 const Fifth_Question = require("../templates/Fifth_Question")
 const Sixth_Question = require("../templates/Sixth_Question")
 const Seventh_Question = require("../templates/Seventh_Question")
+const utils = require("../utils/index")
 const genericList = require("../templates/genericList")
 
 // // Triggered when user sends a message
@@ -33,9 +34,12 @@ const responseBuilder = (sender_psid, responce) => {
 }
 
 // Triggered when user presses a button
-const handlePostback = (sender_psid, received_message) => {
+const handlePostback = async (sender_psid, received_message) => {
     let response
     switch (received_message.payload) {
+        case "Get_Last_Corona_Numbers":
+            const coronaNumbers = await utils.getLastCoronaNumbers()
+            response = text(coronaNumbers)
         case "Take_Test":
             response = responseBuilder(sender_psid, Take_Test_Button())
             break
