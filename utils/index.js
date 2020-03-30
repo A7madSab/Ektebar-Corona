@@ -14,7 +14,7 @@ const getLastCoronaNumbers = async () => {
     })
     const data = await res.json()
     const { covid19Stats } = data.data
-    let confirmed = 0, death = 0, recovered = 0
+    let confirmed = 0, recovered = 0
     covid19Stats.forEach(location => {
         confirmed += location.confirmed
         // death += location.death
@@ -23,7 +23,7 @@ const getLastCoronaNumbers = async () => {
     return [
         `عدد الحالات المرصودة عالميا: ${numberWithCommas(confirmed)}`,
         `عدد الحالات التي تعافت عالميا:${numberWithCommas(recovered)}`,
-        `عددٍ الوفيات عالميا: ${numberWithCommas(death)}`
+        // `عددٍ الوفيات عالميا: ${numberWithCommas(death)}`
     ]
 }
 
