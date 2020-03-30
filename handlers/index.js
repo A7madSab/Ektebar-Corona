@@ -12,12 +12,13 @@ const utils = require("../utils/index")
 
 // Triggered when user sends a message
 const handleMessage = (sender_psid, received_message) => {
+    console.log("inside handleMessage funtion ", sender_psid, received_message)
     let response = {
-        "messaging_type": "الرجاء التعامل مع القائمة الموجودة بالأسفل",
+        "messaging_type": "RESPONSE",
         "recipient": {
             "id": sender_psid
         },
-        "message": genericList(received_message.text)
+        "message": text("الرجاء التعامل مع القائمة الموجودة بالأسفل")
     }
 
     callSendAPI(sender_psid, response)
