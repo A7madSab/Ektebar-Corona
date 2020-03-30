@@ -10,18 +10,18 @@ const Seventh_Question = require("../templates/Seventh_Question")
 const genericList = require("../templates/genericList")
 const utils = require("../utils/index")
 
-// // Triggered when user sends a message
-// const handleMessage = (sender_psid, received_message) => {
-//     let response = {
-//         "messaging_type": "RESPONSE",
-//         "recipient": {
-//             "id": sender_psid
-//         },
-//         "message": genericList(received_message.text)
-//     }
+// Triggered when user sends a message
+const handleMessage = (sender_psid, received_message) => {
+    let response = {
+        "messaging_type": "الرجاء التعامل مع القائمة الموجودة بالأسفل",
+        "recipient": {
+            "id": sender_psid
+        },
+        "message": genericList(received_message.text)
+    }
 
-//     callSendAPI(sender_psid, response)
-// }
+    callSendAPI(sender_psid, response)
+}
 
 const responseBuilder = (sender_psid, responce) => {
     return ({
@@ -39,7 +39,7 @@ const handlePostback = async (sender_psid, received_message) => {
     let responseText = [];
     switch (received_message.payload) {
         case "Get_Last_Corona_Numbers":
-            response = responseBuilder(sender_psid, text(await utils.getLastCoronaNumbers()))
+            response = await utils.getLastCoronaNumbers()
             break
         case "Take_Test":
             response = responseBuilder(sender_psid, Take_Test_Button())
@@ -67,7 +67,6 @@ const handlePostback = async (sender_psid, received_message) => {
                 "بناءا علي اجوبتك، ننصحك بالتواصل مع الخط الساخن لوزارة الصحة 105 في اسرع وقت،",
                 "لمعرفة ان كانت حالتك تحتاج الي اجراء تحليل فيرس كورونا."
             ];
-            //response = responseBuilder(sender_psid, text(responseText));
             break
         case "long_105":
             responseText = [
@@ -75,11 +74,9 @@ const handlePostback = async (sender_psid, received_message) => {
                 "نرجو عدم الذهاب الى قسم الطوارئ، أو زيارة العيادات ما لم تسوء تلك الأعراض. نرجو القيام بحجر ذاتي حتى تصبح نتيجة تحاليلك متاحة.",
                 " العزل الذاتي يتمثل في عدم الذهاب للأماكن العامة، و البقاء في المنزل وعدم مقابلة الزائرين. لا تتشارك الأدوات الشخصية مثل الأطباق و الأواني و المناشف مع الاخرين، و قم بغسل يديك من حين لآخر."
             ];
-            //response = responseBuilder(sender_psid, text(responseText));
             break
         case "short_105":
             responseText = ["بناءً علي اجوبتك، ننصحك  بالاتصال بـ 105 للتحدث مع طاقم التمريض و قم بإخبارهم عن الأعراض التي ظهرت عليك"];
-            //response = responseBuilder(sender_psid, text(responseText));
             break
         case "don't_Need":
             responseText = [
@@ -89,15 +86,11 @@ const handlePostback = async (sender_psid, received_message) => {
                 "الرجاء غسل اليدين بشكل مستمر و مكثف، و حافظ على الابقاء علي مسافة مترين على الأقل مع المحيطين بك.",
                 "اذا ساءت الأعراض و كنت مهتما بمعرفة المزيد، اتصل بـ 105"
             ]
-            //response = responseBuilder(sender_psid, text(responseText));
             break
         default:
             response = responseBuilder(sender_psid, text("other"))
             break
     }
-    // } else if (received_message.payload === "5th_Question") {
-    //     response = responseBuilder(sender_psid, Sixth_Question())
-    // }      
     if (responseText.length == 0) {
         callSendAPI(sender_psid, response);
     } else {
@@ -109,7 +102,7 @@ const handlePostback = async (sender_psid, received_message) => {
 }
 
 module.exports = {
-    // handleMessage,
+    handleMessage,
     handlePostback
 }
 
