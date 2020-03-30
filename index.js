@@ -34,10 +34,9 @@ app.post("/webhook", (req, res) => {
 
             let sender_psid = webhook_event.sender.id
 
-            // if (webhook_event.message) {
-            //     handle.handleMessage(sender_psid, webhook_event.message.text)
-            // } else
-            if (webhook_event.postback) {
+            if (webhook_event.message) {
+                handle.handleMessage(sender_psid, webhook_event.message.text)
+            } else if (webhook_event.postback) {
                 handle.handlePostback(sender_psid, webhook_event.postback)
             }
 
