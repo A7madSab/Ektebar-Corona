@@ -17,9 +17,9 @@ const getLastCoronaNumbers = async () => {
     let confirmed = 0, death = 0, recovered = 0
     covid19Stats.forEach(location => {
         confirmed += location.confirmed
-        death += location.death
+        // death += location.death
         recovered += location.recovered
-    })  
+    })
     return [
         `عدد الحالات المرصودة عالميا: ${numberWithCommas(confirmed)}`,
         `عدد الحالات التي تعافت عالميا:${numberWithCommas(recovered)}`,
