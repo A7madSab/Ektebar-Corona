@@ -20,7 +20,6 @@ const handleMessage = (sender_psid, received_message) => {
         },
         "message": text("الرجاء التعامل مع القائمة الموجودة بالأسفل")
     }
-
     callSendAPI(sender_psid, response)
 }
 
@@ -97,7 +96,7 @@ const handlePostback = async (sender_psid, received_message) => {
     } else {
         for (var i = 0; i < responseText.length; i++) {
             response = responseBuilder(sender_psid, text(responseText[i]));
-            callSendAPI(sender_psid, response);
+            await callSendAPI(sender_psid, response);
         }
     }
 }
