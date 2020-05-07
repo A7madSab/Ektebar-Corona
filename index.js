@@ -1,11 +1,9 @@
 const express = require("express")
 const bodyParser = require("body-parser")
-// const fetch = require("node-fetch")
 const handle = require("./handlers")
 
 const app = express()
 
-// require("./initRoutes")()
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 

@@ -1,15 +1,15 @@
-const fetch = require('node-fetch');
+const fetch = require("node-fetch")
 
 function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
 
 const getLastCoronaNumbers = async () => {
     const res = await fetch("https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats", {
         headers: {
             "Content-Type": "application/json",
-            "x-rapidapi-host": "covid-19-coronavirus-statistics.p.rapidapi.com",
-            "x-rapidapi-key": "311616bd3emshc6c9be769717d48p1135c0jsnd657a88b42b8"
+            "x-rapidapi-host": process.env.RAPID_API_HOST,
+            "x-rapidapi-key": process.env.RAPID_API_KEY
         }
     })
     const data = await res.json()
