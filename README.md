@@ -6,10 +6,14 @@ Due to the COVID-19 outbreak, I created this arabic bot as a quick method to dia
 
 Offer a quick and easy way of a preliminary diagnosis, the bot also suggests a course of action according to the user's diagnosis such as contact hotlines.
 
+# Things to note
+
+This large number of commits is because I couldn't find a way to test the bot locally, so I enabled continuous delivery on Heroku and that was the only way I could test the bot.
+
 # Try Out
 
-Chat with bot here: m.me/104751974493803
-FaceBook Page link: https://www.facebook.com/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1-%D9%83%D9%88%D8%B1%D9%88%D9%86%D8%A7-104751974493803/?modal=admin_todo_tour
+- Chat with bot here: m.me/104751974493803
+- FaceBook Page link: https://www.facebook.com/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1-%D9%83%D9%88%D8%B1%D9%88%D9%86%D8%A7-104751974493803/?modal=admin_todo_tour
 
 
 <div style="display:flex; flex-direction:row">
