@@ -15,7 +15,6 @@ app.get("/webhook", (req, res) => {
 
     if (mode && token) {
         if (mode === "subscribe" && token === process.env.VERIFY_TOKEN) {
-            console.log("WEBHOOK_VERIFIED")
             res.status(200).send(challenge)
         } else {
             res.sendStatus(403)
@@ -47,15 +46,3 @@ app.post("/webhook", (req, res) => {
 app.listen(process.env.PORT || 3000, () => {
     console.log("Sever is UP!")
 })
-
-
-
-
-// else if (webhook_event.postback) {
-//     console.log("clicked on a button")
-//     handle.handlePostback(sender_psid, webhook_event.postback)
-// } else if (webhook_event.delivery) {
-//     console.log("webhook_event.deliveries")
-// } else if (webhook_event.reaction) {
-//     console.log("message_reactions")
-// }
