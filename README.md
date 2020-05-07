@@ -24,4 +24,4 @@ FaceBook Page link: https://www.facebook.com/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B
 
 # How to contribute & Links
 
-If you like this project, please consider a shoutout. All contributions are welcome. Using this app will help me greatly.  https://homathon.herokuapp.com/
+If you like this project, please consider a shoutout. All contributions are welcome. Using this app will help me greatly.
