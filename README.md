@@ -13,13 +13,13 @@ FaceBook Page link: https://www.facebook.com/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B
 
 
 <div style="display:flex; flex-direction:row">
-    <img style="margin:15px" width="480" alt="Landing Page" src="./assets/imgA.png">
-    <img style="margin:15px" width="480" alt="Landing Page" src="./assets/imgB.png">
+    <img style="margin:15px" width="400" alt="Landing Page" src="./assets/imgA.png">
+    <img style="margin:15px" width="400" alt="Landing Page" src="./assets/imgB.png">
 </div>
 <div style="display:flex; flex-direction:row">
-    <img style="margin:15px" width="310" alt="Landing Page" src="./assets/mainPage.jpg">
-    <img style="margin:15px" width="310" alt="Landing Page" src="./assets/conv.jpg">
-    <img style="margin:15px" width="310" alt="Landing Page" src="./assets/stats.jpg">
+    <img style="margin:15px" width="255" alt="Landing Page" src="./assets/mainPage.jpg">
+    <img style="margin:15px" width="255" alt="Landing Page" src="./assets/conv.jpg">
+    <img style="margin:15px" width="255" alt="Landing Page" src="./assets/stats.jpg">
 </div>
 
 # How to contribute & Links
