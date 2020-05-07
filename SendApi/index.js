@@ -1,7 +1,7 @@
 const fetch = require("node-fetch")
 
 //  Send the responce to messenger
-module.exports = (sender_psid, response) => {
+module.exports = response => {
     const url = `https://graph.facebook.com/v5.0/me/messages?access_token=${process.env.ACCESS_TOKEN}`
     try {
         fetch(url, {

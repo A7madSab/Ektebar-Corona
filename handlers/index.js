@@ -7,12 +7,10 @@ const Fourth_Question = require("../templates/Fourth_Question")
 const Fifth_Question = require("../templates/Fifth_Question")
 const Sixth_Question = require("../templates/Sixth_Question")
 const Seventh_Question = require("../templates/Seventh_Question")
-const genericList = require("../templates/genericList")
 const utils = require("../utils/index")
 
 // Triggered when user sends a message
 const handleMessage = (sender_psid, received_message) => {
-    console.log("inside handleMessage funtion ", sender_psid, received_message)
     let response = {
         "messaging_type": "RESPONSE",
         "recipient": {
@@ -20,17 +18,7 @@ const handleMessage = (sender_psid, received_message) => {
         },
         "message": text("الرجاء التعامل مع القائمة الموجودة بالأسفل")
     }
-    callSendAPI(sender_psid, response)
-}
-
-const responseBuilder = (sender_psid, responce) => {
-    return ({
-        "messaging_type": "RESPONSE",
-        "recipient": {
-            "id": sender_psid
-        },
-        "message": responce
-    })
+    callSendAPI(response)
 }
 
 // Triggered when user presses a button
@@ -42,25 +30,25 @@ const handlePostback = async (sender_psid, received_message) => {
             responseText = await utils.getLastCoronaNumbers()
             break
         case "Take_Test":
-            response = responseBuilder(sender_psid, Take_Test_Button())
+            response = utils.responseBuilder(sender_psid, Take_Test_Button())
             break
         case "2nd_question":
-            response = responseBuilder(sender_psid, Secound_Question())
+            response = utils.responseBuilder(sender_psid, Secound_Question())
             break
         case "3nd_question":
-            response = responseBuilder(sender_psid, Third_Question())
+            response = utils.responseBuilder(sender_psid, Third_Question())
             break
         case "4th_Question":
-            response = responseBuilder(sender_psid, Fourth_Question())
+            response = utils.responseBuilder(sender_psid, Fourth_Question())
             break
         case "5th_Question":
-            response = responseBuilder(sender_psid, Fifth_Question())
+            response = utils.responseBuilder(sender_psid, Fifth_Question())
             break
         case "6th_Question":
-            response = responseBuilder(sender_psid, Sixth_Question())
+            response = utils.responseBuilder(sender_psid, Sixth_Question())
             break
         case "7th_Question":
-            response = responseBuilder(sender_psid, Seventh_Question())
+            response = utils.responseBuilder(sender_psid, Seventh_Question())
             break
         case "Emergence":
             responseText = [
@@ -88,15 +76,15 @@ const handlePostback = async (sender_psid, received_message) => {
             ]
             break
         default:
-            response = responseBuilder(sender_psid, text("other"))
+            response = utils.responseBuilder(sender_psid, text("other"))
             break
     }
     if (responseText.length == 0) {
-        callSendAPI(sender_psid, response);
+        callSendAPI(response)
     } else {
         for (var i = 0; i < responseText.length; i++) {
-            response = responseBuilder(sender_psid, text(responseText[i]));
-            await callSendAPI(sender_psid, response);
+            response = utils.responseBuilder(sender_psid, text(responseText[i]))
+            callSendAPI(response)
         }
     }
 }
@@ -105,10 +93,3 @@ module.exports = {
     handleMessage,
     handlePostback
 }
-
-
-// { 
-//     "get_started":{
-//       "payload":"Take_Test"
-//     }
-// }

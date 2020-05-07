@@ -27,6 +27,17 @@ const getLastCoronaNumbers = async () => {
     ]
 }
 
+const responseBuilder = (sender_psid, responce) => {
+    return ({
+        "messaging_type": "RESPONSE",
+        "recipient": {
+            "id": sender_psid
+        },
+        "message": responce
+    })
+}
+
 module.exports = {
-    getLastCoronaNumbers
+    getLastCoronaNumbers,
+    responseBuilder
 }
