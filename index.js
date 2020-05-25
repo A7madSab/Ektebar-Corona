@@ -1,8 +1,8 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const handle = require("./handlers")
-const callSendAPI = require("../SendApi")
-const markAsRead = require("../templates/MarkasRead")
+const callSendAPI = require("./SendApi")
+const markAsRead = require("./templates/MarkasRead")
 
 const app = express()
 
@@ -32,7 +32,7 @@ app.post("/webhook", (req, res) => {
             let webhook_event = entry.messaging[0]
 
             let sender_psid = webhook_event.sender.id
-            
+
             // mark message as seen
             await callSendAPI(markAsRead(sender_psid))
 
