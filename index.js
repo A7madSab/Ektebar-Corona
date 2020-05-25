@@ -1,6 +1,10 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const handle = require("./handlers")
+const callSendAPI = require("./SendApi")
+const markAsRead = require("./templates/MarkasRead")
+const turnBubbleOn = require("./templates/turnBubbleOn")
+const turnBubbleOff = require("./templates/turnbubbleOff")
 
 const app = express()
 
@@ -22,20 +26,22 @@ app.get("/webhook", (req, res) => {
     }
 })
 
-app.post("/webhook", (req, res) => {
+app.post("/webhook", async (req, res) => {
     let body = req.body
 
     if (body.object === "page") {
-        body.entry.forEach(function (entry) {
+        body.entry.forEach(async (entry) => {
             let webhook_event = entry.messaging[0]
 
             let sender_psid = webhook_event.sender.id
-
+            await callSendAPI(markAsRead(sender_psid))
+            await callSendAPI(turnBubbleOn(sender_psid))
             if (webhook_event.message) {
                 handle.handleMessage(sender_psid, webhook_event.message.text)
             } else if (webhook_event.postback) {
                 handle.handlePostback(sender_psid, webhook_event.postback)
             }
+            await callSendAPI(turnBubbleOff(sender_psid))
         })
         res.status(200).send("EVENT_RECEIVED")
     } else {

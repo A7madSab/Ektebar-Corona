@@ -1,10 +1,10 @@
 const fetch = require("node-fetch")
 
 //  Send the responce to messenger
-module.exports = response => {
+module.exports = async response => {
     const url = `https://graph.facebook.com/v5.0/me/messages?access_token=${process.env.ACCESS_TOKEN}`
     try {
-        fetch(url, {
+        await fetch(url, {
             method: "POST",
             mode: "cors",
             headers: {

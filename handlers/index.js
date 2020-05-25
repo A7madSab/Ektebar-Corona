@@ -7,6 +7,9 @@ const Fourth_Question = require("../templates/Fourth_Question")
 const Fifth_Question = require("../templates/Fifth_Question")
 const Sixth_Question = require("../templates/Sixth_Question")
 const Seventh_Question = require("../templates/Seventh_Question")
+const turnBubbleOn = require("../templates/turnBubbleOn")
+const turnBubbleOff = require("../templates/turnbubbleOff")
+const markAsRead = require("../templates/MarkasRead")
 const utils = require("../utils/index")
 
 // Triggered when user sends a message
@@ -80,11 +83,11 @@ const handlePostback = async (sender_psid, received_message) => {
             break
     }
     if (responseText.length == 0) {
-        callSendAPI(response)
+        await callSendAPI(response)
     } else {
         for (var i = 0; i < responseText.length; i++) {
             response = utils.responseBuilder(sender_psid, text(responseText[i]))
-            callSendAPI(response)
+            await callSendAPI(response)
         }
     }
 }
