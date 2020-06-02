@@ -91,7 +91,7 @@ const handlePostback = async (sender_psid, received_message) => {
             response = utils.responseBuilder(sender_psid, text(responseText[i]))
             await callSendAPI(response)
         }
-        response = utils.responseBuilder(sender_psid, text("اذا اردت شراء ادوات حمايه من الفيروس ننصح بالبحث على هذا ال bot: m.me/qareneg"))
+        await callSendAPI(utils.responseBuilder(sender_psid, text("اذا اردت شراء ادوات حمايه من الفيروس ننصح بالبحث على هذا ال bot: m.me/qareneg")))
         await callSendAPI(turnBubbleOff(sender_psid))
     }
 }
