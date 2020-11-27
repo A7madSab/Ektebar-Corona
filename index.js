@@ -9,6 +9,10 @@ const app = express()
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+app.get("/", (req, res) => {
+    res.send("okay")
+})
+
 // To verify source
 app.get("/webhook", (req, res) => {
     let mode = req.query["hub.mode"]
@@ -35,6 +39,8 @@ app.post("/webhook", (req, res) => {
 
             // mark message as seen
             await callSendAPI(markAsRead(sender_psid))
+
+            console.log(webhook_event.message)
 
             if (webhook_event.message) {
                 handle.handleMessage(sender_psid, webhook_event.message.text)
