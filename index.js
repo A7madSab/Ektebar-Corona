@@ -40,7 +40,7 @@ app.post("/webhook", (req, res) => {
             // mark message as seen
             await callSendAPI(markAsRead(sender_psid))
 
-            console.log(webhook_event.message)
+            console.log("webhook_event.postback", webhook_event.postback)
 
             if (webhook_event.message) {
                 handle.handleMessage(sender_psid, webhook_event.message.text)
